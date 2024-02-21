@@ -1,3 +1,26 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
+  presets: [
+    [
+      'module:@react-native/babel-preset',
+      {useTransformReactJSXExperimental: true},
+    ],
+  ],
+  plugins: [
+    [
+      '@babel/plugin-transform-react-jsx',
+      {
+        runtime: 'automatic',
+      },
+    ],
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        alias: {
+          '~': './src',
+        },
+      },
+    ],
+    ['react-native-reanimated/plugin'],
+  ],
 };
